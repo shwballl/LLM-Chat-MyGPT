@@ -66,8 +66,8 @@
 
 ## 🛠️ Usage
 
-Once both servers are running, navigate to `http://localhost:4321/` in your browser to interact with the applicatin You can input queries, and the backend will process them using the integrated LM.
+Once both servers are running, navigate to `http://localhost:4321/` in your browser to interact with the applicatin. You can input queries, and the backend will process them using the integrated LM.
 
 ## ⚠️ Disclaimr
 
-This project is intended for educational and research purposes ol. The author is not responsible for any misuse of this softwr. Ensure compliance with all applicable laws and regulations when using this softwre.
+This project is intended for educational and research purposes ol. The author is not responsible for any misuse of this softwr. Ensure compliance with all applicable laws and regulations when using this softwre.
