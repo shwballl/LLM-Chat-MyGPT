@@ -5,18 +5,18 @@
 
 ## 🧠 Project Overview
 
-- **Purpose**:Educational exploration of LLMs with Python
+- **Purpose**: Educational exploration of LLMs with Python
 - **Components**:
   - `backend/`: Contains server-side code for handling LLM interactions
   - `frontend/`: Houses the client-side interface for user interactions
-- **Technologies Used**:Python, JavaScript, CSS, FastAPI for the backend, and Astro for the frontend
+- **Technologies Used**:Python, FastAPI for the backend, and Astro, JavaScript and TailwindCSS for the frontend
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Python 3.8 or highr
-- Node.js and npm (for frontend developmen)
+- Python 3.8 or higher
+- Node.js and npm (for frontend development)
 
 ### Installation
 
@@ -32,12 +32,12 @@
      ```bash
      cd backend
      ```
-   - Create a virtual environment and activate i:
+   - Create a virtual environment and activate it:
      ```bash
      python -m venv venv
      source venv/bin/activate  # On Windows: venv\Scripts\activate
      ```
-   - Install dependencie:
+   - Install dependencies:
      ```bash
      pip install -r requirements.txt
      ```
@@ -47,18 +47,18 @@
      ```bash
      cd ../frontend
      ```
-    Install dependencie:
+    Install dependencies:
      ```bash
      npm install
      ```
 
 4. **Run the Application**:
-    Start the backend serve:
+    Start the backend server:
      ```bash
      cd ../backend
      uvicorn src.main:app --reload
      ```
-    Start the frontend development serve:
+    Start the frontend development server:
      ```bash
      cd ../frontend
      npm run dev
@@ -66,7 +66,7 @@
 
 ## 🛠️ Usage
 
-Once both servers are running, navigate to `http://localhost:4321/` in your browser to interact with the applicatin. You can input queries, and the backend will process them using the integrated LM.
+Once both servers are running, navigate to `http://localhost:4321/` in your browser to interact with the applicatin. You can input queries, and the backend will process them using the integrated LLM.
 
 ## ⚠️ Disclaimr
 
