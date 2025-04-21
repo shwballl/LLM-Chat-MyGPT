@@ -1,0 +1,7 @@
+2025-04-21 14:08:43,561 - ERROR - Failed to generate response. With error: Error code: 413 - {'error': {'code': 'tokens_limit_reached', 'message': 'Request body too large for gpt-4o model. Max size: 8000 tokens.', 'details': 'Request body too large for gpt-4o model. Max size: 8000 tokens.'}}
+2025-04-21 14:08:43,562 - ERROR - Response is None
+2025-04-21 14:08:56,911 - ERROR - Failed to generate response. With error: Error code: 413 - {'error': {'code': 'tokens_limit_reached', 'message': 'Request body too large for gpt-4o model. Max size: 8000 tokens.', 'details': 'Request body too large for gpt-4o model. Max size: 8000 tokens.'}}
+2025-04-21 14:08:56,913 - ERROR - Response is None
+2025-04-21 14:18:15,596 - ERROR - Failed to generate response. With error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Rate limit of 50 per 86400s exceeded for UserByModelByDay. Please wait 20115 seconds before retrying.', 'details': 'Rate limit of 50 per 86400s exceeded for UserByModelByDay. Please wait 20115 seconds before retrying.'}}
+2025-04-21 14:18:15,597 - ERROR - Response is None
+2025-04-21 14:18:55,702 - ERROR - Failed to generate response. With error: Error code: 429 - {'error': {'code': 'RateLimitReached', 'message': 'Rate limit of 50 per 86400s exceeded for UserByModelByDay. Please wait 20075 seconds before retrying.', 'details': 'Rate limit of 50 per 86400s exceeded for UserByModelByDay. Please wait 20075 seconds before retrying.'}}

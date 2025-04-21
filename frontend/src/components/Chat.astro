@@ -1,0 +1,103 @@
+<style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+  </style>
+  
+  <div class="bg-gray-900 text-white h-screen w-screen flex flex-col antialiased">
+    <!-- Header -->
+    <header class="flex justify-between items-center px-6 py-4 bg-gray-800 text-base font-medium">
+      <div class="text-xl font-semibold">MyGPT</div>
+    </header>
+  
+    <!-- Chat Messages -->
+    <div id="chat-container" class="flex-1 overflow-y-auto p-4 space-y-4">
+      <!-- Messages will be appended here -->
+    </div>
+  
+    <!-- Input Area -->
+    <main class="px-4 py-6 bg-gray-900 border-t border-gray-800">
+      <div class="w-full max-w-2xl mx-auto">
+        <form id="chat-form" class="flex items-center gap-2 bg-gray-800 px-4 py-3 rounded-2xl">
+          <input id="user-input" type="text" placeholder="Ask something..." class="flex-1 bg-transparent text-white placeholder-gray-400 outline-none text-base" />
+          <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition text-sm font-medium hover:cursor-pointer hover:scale-105">Send</button>
+        </form>
+      </div>
+    </main>
+  </div>
+  
+  <script>
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('user-input');
+    const chatContainer = document.getElementById('chat-container');
+  
+    marked.setOptions({
+      gfm: true,
+      breaks: true,
+      highlight: function (code, lang) {
+        if (hljs.getLanguage(lang)) {
+          return hljs.highlight(code, { language: lang }).value;
+        }
+        return hljs.highlightAuto(code).value;
+      }
+    });
+  
+    const createMessageBubble = (text, isUser = false, isLoading = false) => {
+      const bubble = document.createElement('div');
+      const wrapper = document.createElement('div');
+      wrapper.className = `flex ${isUser ? 'justify-end' : 'justify-start'}`;
+  
+      bubble.className = `inline-block px-5 py-4 rounded-2xl text-base leading-relaxed whitespace-pre-wrap overflow-auto break-words max-w-[90%] ${
+        isUser
+          ? 'bg-blue-600 text-white self-end'
+          : isLoading
+          ? 'bg-gray-700 text-gray-300 italic animate-pulse'
+          : 'bg-gray-800 text-gray-100'
+      }`;
+  
+      if (isUser) {
+        bubble.textContent = text;
+      } else if (!isLoading) {
+        const rawHTML = marked.parse(text);
+        bubble.innerHTML = DOMPurify.sanitize(rawHTML);
+      } else {
+        bubble.textContent = text;
+      }
+  
+      wrapper.appendChild(bubble);
+      return wrapper;
+    };
+  
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const message = input.value.trim();
+      if (!message) return;
+      input.value = '';
+  
+      const userMessageEl = createMessageBubble(message, true);
+      chatContainer.appendChild(userMessageEl);
+  
+      const loadingEl = createMessageBubble('Thinking...', false, true);
+      chatContainer.appendChild(loadingEl);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+  
+      fetch('http://127.0.0.1:4321/generate', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: message })
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          loadingEl.remove();
+          const responseText = data['CHAT GPT:'] || data.response || 'No response.';
+          const botMessageEl = createMessageBubble(responseText, false);
+          chatContainer.appendChild(botMessageEl);
+          chatContainer.scrollTop = chatContainer.scrollHeight;
+        })
+        .catch((error) => {
+          loadingEl.remove();
+          const errorMessage = createMessageBubble('Error: ' + error.message, false);
+          chatContainer.appendChild(errorMessage);
+        });
+    });
+  </script>

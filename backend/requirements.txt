@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+dotenv
+python-dotenv
+pydantic
+requests
+openai
+slowapi
+colorlog
