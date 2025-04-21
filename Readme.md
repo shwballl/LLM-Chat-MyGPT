@@ -5,18 +5,18 @@
 
 ## 🧠 Project Overview
 
-- **Purpose**:Educational exploration of LLMs with Python
+- **Purpose**:Educational exploration of LLMs with Python
 - **Components**:
-  - `backend/`:Contains server-side code for handling LLM interactions
-  - `frontend/`:Houses the client-side interface for user interactions
-- **Technologies Used**:Python, JavaScript, CSS, FastAPI for the backend, and Astro for the frontend
+  - `backend/`: Contains server-side code for handling LLM interactions
+  - `frontend/`: Houses the client-side interface for user interactions
+- **Technologies Used**:Python, JavaScript, CSS, FastAPI for the backend, and Astro for the frontend
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 
-- Python 3.8 or highr
-- Node.js and npm (for frontend developmen)
+- Python 3.8 or highr
+- Node.js and npm (for frontend developmen)
 
 ### Installation
 
@@ -32,12 +32,12 @@
      ```bash
      cd backend
      ```
-    Create a virtual environment and activate i:
+   - Create a virtual environment and activate i:
      ```bash
      python -m venv venv
      source venv/bin/activate  # On Windows: venv\Scripts\activate
      ```
-    Install dependencie:
+   - Install dependencie:
      ```bash
      pip install -r requirements.txt
      ```
